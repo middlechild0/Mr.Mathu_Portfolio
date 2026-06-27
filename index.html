@@ -1,430 +1,176 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethan Word-Web Developer From New York</title>
+    <title>Jimmy Mathu | The Architect</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mono: ['"Fira Code"', 'Consolas', 'Monaco', 'monospace'],
+                    },
+                    colors: {
+                        'architect-red': '#E50914',
+                        'architect-bg': '#0a0a0a',
+                        'architect-border': '#333333',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #f3f4f6;
+            font-family: 'Fira Code', monospace;
+            background-image: 
+                linear-gradient(#111 1px, transparent 1px),
+                linear-gradient(90deg, #111 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        
+        /* CRT scanline effect */
+        .scanlines::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(18, 16, 16, 0) 50%,
+                rgba(0, 0, 0, 0.25) 50%
+            );
+            background-size: 100% 4px;
+            z-index: 50;
+            pointer-events: none;
+        }
 
-    <!-- 
-      -favicon
-     -->
-     <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
-
-     <!-- 
-        custom css link
-      -->
-      <link rel="stylesheet" href="css/style.css">
-
-      <!-- 
-        -google font link
-       -->
-       <link rel="preconnect" href="https://fonts.googleapis.com">
-       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-       <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Open+Sans:wght@400;500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+        .glitch-hover:hover {
+            color: #E50914;
+            text-shadow: 2px 0 #00ff00, -2px 0 #0000ff;
+            transition: all 0.1s;
+        }
+    </style>
 </head>
-<body>
+<body class="min-h-screen relative overflow-x-hidden selection:bg-architect-red selection:text-white">
+    <div class="scanlines"></div>
 
-    <!-- 
-    -HEADER
-     -->
-     <header class="header" data-header>
-        <div class="container">
-            <a href="#">
-                <h1 class="logo">Mr. Mathu</h1>
-            </a>
-            <button class="nav-toggle-btn" aria-label="Toggle Menu" data-nav-toggle-btn>
-                <ion-icon name="menu-outline" class="menu-icon"></ion-icon>
-                <ion-icon name="close-outline" class="close-icon"></ion-icon>
-            </button>
-            <nav class="navbar container">
-                <ul class="navbar-list">
-                    <li>
-                        <a href="#home" class="navbar-link" data-nav-link>Home</a>
-                    </li>
-                    <li>
-                        <a href="#about" class="navbar-link" data-nav-link>About</a>
-                    </li>
-                    <li>
-                        <a href="#portfolio" class="navbar-link" data-nav-link>
-                            Portfolio</a>
-                    </li>
-                    <li>
-                        <a href="#skills" class="navbar-link" data-nav-link>Skills</a>
-                    </li>
-                    <li>
-                        <a href="#contact" class="navbar-link" data-nav-link>Contact</a>
-                    </li>
-                    <li>
-                        <a href="#blog" class="navbar-link" data-nav-link>Blog</a>
-                    </li>
-                    <li>
-                        <a href="#" class="btn btn-primary">Download CV</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-     </header>
-
-     <main>
-        <article>
-
-            <!-- 
-                -#HERO
-             -->
-
-             <section class="hero" id="home">
-                <div class="container">
-                    <div class="hero-banner">
-                        <img src="./images/hero-banner.jpg" width="800" height="864" loading="lazy" alt="Ethan's Photo" class="img-cover">
-                        <!-- <div class="elem elem-1">
-                            <p class="elem-title">12</p>
-                            <p class="elem-text">Tears of Success</p>
-                        </div>
-                        <div class="elem elem-2">
-                            <p class="elem-title">800+</p>
-                            <p class="elem-text">Projects Complete</p>
-                        </div>
-                        <div class="elem elem-3">
-                            <ion-icon name="trophy"></ion-icon>
-                        </div> -->
-                        <img src="./images/rotate-img.png" width="169" height="172" alt="I'm developer from New York" class="rotate-img">
-                    </div>
-                    <div class="hero-content">
-                        <h2 class="hero-title">
-                            <span>Hello I'm</span>
-                            <strong>Mr. Mathu</strong>Web Developer From Kenya.</h2>
-                            <p class="hero-text">
-                                "Crafting seamless digital experiences, a web developer blends logic and creativity, transforming code into connections and pixels into possibilities."
-                            </p>
-                            <div class="btn-group">
-                                <a href="#contact" class="btn btn-primary blue">Hit me up</a>
-                                <a href="#about" class="btn">About Me</a>
-                            </div>
-                    </div>
+    <div class="max-w-4xl mx-auto px-6 py-16 relative z-10">
+        
+        <!-- HEADER -->
+        <header class="mb-16 border-b border-architect-border pb-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-bold tracking-tighter text-white glitch-hover">JIMMY MATHu</h1>
+                    <p class="text-architect-red text-lg mt-2 font-semibold">> The Architect_</p>
                 </div>
-             </section>
-
-             <!----
-                -#ABOUT
-             -->
-
-             <section class="section about" id="about">
-                <div class="container">
-                    <figure class="about-banner">
-                        <img src="./images/about-banner.jpg" width="800" height="652" loading="lazy" alt="Ethan's Photo" class="img-cover">
-                        <img src="./images/absolute-image.jpg" width="800" height="717" loading="lazy" alt="Ethen's Photo" class="abs-img">
-                        <div class="abs-icon abs-icon-1">
-                            <ion-icon name="logo-css3"></ion-icon>
-                        </div>
-                        <div class="abs-icon abs-icon-2">
-                            <ion-icon name="logo-javascript"></ion-icon>
-                        </div>
-                        <div class="abs-icon abs-icon-3">
-                            <ion-icon name="logo-angular"></ion-icon>
-                        </div>
-                    </figure>
-                    <div class="about-content">
-                        <p class="section-subtitle">I'm a Developer</p>
-                        <h2 class="h2 section-title">I Develop Application That Help People</h2>
-                        <p class="section-text">Dliquip ex ea commo do conse namber onequa ute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu eptuer sint occaecat cupidatat</p>
-                        <p class="section-text">Kornon proident,sunt in culpa qui officia deserunt mollit anim id est laborum.Sed ut perspiciatis unde omnis</p>
-                        <a href="#portfolio" class="btn btn-primary blue">View Portfolio</a>
-                    </div>
+                <div class="flex gap-4">
+                    <a href="https://github.com/middlechild0" target="_blank" class="border border-architect-border px-4 py-2 hover:bg-white hover:text-black transition-colors">GITHUB</a>
+                    <a href="https://www.linkedin.com/in/jimmy-mathu-bb08103a8/" target="_blank" class="border border-architect-border px-4 py-2 hover:bg-white hover:text-black transition-colors">LINKEDIN</a>
+                    <a href="mailto:jimmymathu28@gmail.com" class="border border-architect-red text-architect-red px-4 py-2 hover:bg-architect-red hover:text-white transition-colors">INIT_CONTACT</a>
                 </div>
-             </section>
-             <!---
-               #PORTFOLIO
-              --->
+            </div>
+        </header>
 
-              <section class="section portfolio" id="portfolio">
-                <div class="container">
-                    <p class="section-subtitle">Portfolio</p>
-                    <h2 class="h2 section-title">My Amazing Works</h2>
-                    <p class="section-text">Dliquip ex ea commo do conse namber onequa ute irure dolor in reprehenderit in voluptate</p>
-                    <ul class="portfolio-list">
-                        <li>
-                            <a href="#" class="portfolio-card" style="background-image: url('./images/portfolio-1.jpg');">
-                                <div class="card-content">
-                                    <p class="card-subtitle">Youtube</p>
-                                    <h3 class="h3 card-title">Web Application for Desiverse</h3>
-                                    <span class="btn-link">
-                                        <span>View Project</span>
-                                        <ion-icon name="arrow-forward"></ion-icon>
+        <!-- SYS_INIT -->
+        <section class="mb-16">
+            <h2 class="text-xl text-gray-400 mb-4">/// SYS_INIT: IDENTITY</h2>
+            <div class="bg-black border border-architect-border p-6 shadow-2xl relative overflow-hidden group">
+                <div class="absolute top-0 left-0 w-1 h-full bg-architect-red group-hover:w-full group-hover:opacity-10 transition-all duration-500"></div>
+                <pre class="text-sm md:text-base overflow-x-auto text-green-400">
+{
+  "role": "Computer Scientist & Systems Architect",
+  "location": "Nairobi, Kenya",
+  "focus": [
+    "Agentic AI Workflows",
+    "High-Frequency Data Pipelines",
+    "Distributed Web Ecosystems"
+  ],
+  "status": "Architecting Sajim Inc / Stride OS"
+}
+                </pre>
+            </div>
+        </section>
 
-                                    </span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="portfolio-card" style="background-image: url('./images/portfolio-2.jpg');">
-                                <div class="card-content">
-                                    <p class="card-subtitle">Vimeo</p>
-                                    <h3 class="h3 card-title">Web Application for Desiverse</h3>
-                                    <span class="btn-link">
-                                        <span>View Project</span>
-                                        <ion-icon name="arrow-forward"></ion-icon>
-
-                                    </span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="portfolio-card" style="background-image: url('./images/portfolio-3.jpg');">
-                                <div class="card-content">
-                                    <p class="card-subtitle">Soundcloud</p>
-                                    <h3 class="h3 card-title">Web Application for Desiverse</h3>
-                                    <span class="btn-link">
-                                        <span>View Project</span>
-                                        <ion-icon name="arrow-forward"></ion-icon>
-
-                                    </span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="portfolio-card" style="background-image: url('./images/portfolio-4.jpg');">
-                                <div class="card-content">
-                                    <p class="card-subtitle">Details</p>
-                                    <h3 class="h3 card-title">Web Application for Desiverse</h3>
-                                    <span class="btn-link">
-                                        <span>View Project</span>
-                                        <ion-icon name="arrow-forward"></ion-icon>
-                                    </span>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
+        <!-- PARADIGM SHIFT -->
+        <section class="mb-16">
+            <h2 class="text-xl text-gray-400 mb-4">/// THE PARADIGM SHIFT</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="border border-architect-border p-6 bg-black/50 backdrop-blur-sm">
+                    <h3 class="text-2xl font-bold text-white mb-4">Manual coding is <span class="text-architect-red line-through">deprecated</span>.</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        Ignore the hype. AI is not a replacement. It is simply a compiler for high-level logic, no different than TypeScript, Linux, or Docker. A tool is only as powerful as the mind wielding it.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed">
+                        I operate strictly as the Architect. I dictate the database schemas, optimize the Big-O time complexity, build the RAG pipelines, and architect the quantitative trading models. I then deploy autonomous AI subagents to execute the raw codebase at scale. All IP, business logic, and system architecture are 100% mine.
+                    </p>
                 </div>
-              </section>
-
-            <!---
-                #SKIILLS
-            ----->
-
-            <section class="section skills" id="skills">
-                <div class="container">
-                    <p class="section-subtitle">My Skills</p>
-                    <h2 class="h2 section-title">I Develop Skills Regularly</h2>
-                    <p class="section-text">Dliquip ex ea commo do conse namber onequa ute irure dolor in reprehenderit in voluptate </p>
-                    <ul class="skills-list">
-                        <li class="skills-item">
-                            <div class="wrapper" style="width:95%">
-                                <h3 class="skills-title">CSS</h3>
-                                <data class="skills-data" value="95">95%</data>
-                            </div>
-                            <div class="skills-progress-box">
-                                <div class="skills-progress" style="width:95%"></div>
+                
+                <div class="border border-architect-border p-6 bg-black/50 backdrop-blur-sm flex flex-col justify-center">
+                    <h3 class="text-xl font-bold text-white mb-4 border-b border-architect-border pb-2">/// CURRENT DEPLOYMENTS</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="text-architect-red mt-1">></span>
+                            <div>
+                                <strong class="text-white">Stride OS</strong>
+                                <p class="text-sm text-gray-400">Unified Enterprise OS (TypeScript, Next.js, Bun)</p>
                             </div>
                         </li>
-                        <li class="skills-item">
-                            <div class="wrapper" style="width:75%">
-                                <h3 class="skills-title">React</h3>
-                                <data class="skills-data" value="75">75%</data>
-                            </div>
-                            <div class="skills-progress-box">
-                                <div class="skills-progress" style="width:75%"></div>
+                        <li class="flex items-start gap-3">
+                            <span class="text-architect-red mt-1">></span>
+                            <div>
+                                <strong class="text-white">Stride KRA</strong>
+                                <p class="text-sm text-gray-400">Headless AI-driven tax compliance engines</p>
                             </div>
                         </li>
-                        <li class="skills-item">
-                            <div class="wrapper" style="width:90%">
-                                <h3 class="skills-title">MongoDB</h3>
-                                <data class="skills-data" value="90">90%</data>
-                            </div>
-                            <div class="skills-progress-box">
-                                <div class="skills-progress" style="width:90%"></div>
-                            </div>
-                        </li>
-                        <li class="skills-item">
-                            <div class="wrapper" style="width:70%">
-                                <h3 class="skills-title">Python</h3>
-                                <data class="skills-data" value="70">70%</data>
-                            </div>
-                            <div class="skills-progress-box">
-                                <div class="skills-progress" style="width:70%"></div>
-                            </div>
-                        </li>
-                        <li class="skills-item">
-                            <div class="wrapper" style="width:80%">
-                                <h3 class="skills-title">PHP</h3>
-                                <data class="skills-data" value="80">80%</data>
-                            </div>
-                            <div class="skills-progress-box">
-                                <div class="skills-progress" style="width:80%"></div>
-                            </div>
-                        </li>
-                        <li class="skills-item">
-                            <div class="wrapper" style="width:75%">
-                                <h3 class="skills-title">Javascript</h3>
-                                <data class="skills-data" value="75">75%</data>
-                            </div>
-                            <div class="skills-progress-box">
-                                <div class="skills-progress" style="width:75%"></div>
+                        <li class="flex items-start gap-3">
+                            <span class="text-architect-red mt-1">></span>
+                            <div>
+                                <strong class="text-white">Stride Forex</strong>
+                                <p class="text-sm text-gray-400">Low-latency Algorithmic MT5 trading bridges</p>
                             </div>
                         </li>
                     </ul>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!---
-              #CONTACT
-             ---->
+        <!-- STACK TRACE -->
+        <section class="mb-16">
+            <h2 class="text-xl text-gray-400 mb-4">/// STACK_TRACE</h2>
+            <div class="border border-architect-border p-8 bg-black/50 flex flex-col items-center gap-6">
+                <img src="https://skillicons.dev/icons?i=ts,js,python,java,html,css,nextjs,react,tailwind,bun,nodejs,postgres,supabase,aws,kubernetes,docker,linux,vim,git,github,vercel&perline=7" alt="Tech Stack" class="w-full max-w-2xl hidden md:block">
+                <img src="https://skillicons.dev/icons?i=ts,js,python,java,html,css,nextjs,react,tailwind,bun,nodejs,postgres,supabase,aws,kubernetes,docker,linux,vim,git,github,vercel&perline=4" alt="Tech Stack" class="w-full max-w-md block md:hidden">
+                <p class="text-gray-400 text-center text-sm md:text-base border-t border-architect-border pt-4 w-full">
+                    LLMs // Autonomous Agents // OpenAI // Claude // RAG // Algorithmic Logic
+                </p>
+            </div>
+        </section>
 
-             <section class="section contact" id="contact">
-                <div class="container">
-                    <div class="contact-card">
-                        <p class="card-subtitle">Don't be shy</p>
-                        <h2 class="h2 section-title">Drop Me a Line</h2>
-                        <div class="wrapper">
-                            <form action="" class="contact-form">
-                                <input type="text" name="name" placeholder="name" required class="contact-input">
-                                <input type="email" name="email" placeholder="Email" required class="contact-input">
-                                <textarea name="message" placeholder="message" required class="contact-input">
-                                 </textarea>
-                                 <button type="submit" class="btn-submit">Submit Message</button>
-                            </form>
-                            <ul class="contact-list">
-                                <li class="contact-item">
-                                    <div class="contact-icon">
-                                        <ion-icon name="location"></ion-icon>
-                                    </div>
-                                    <div>
-                                        <h3 class="contact-item-title">Address</h3>
-                                        <address class="contact-item-link">
-                                            20,London,<br>United Kingdom
-                                        </address>
-                                    </div>
-                                </li>
-                                <li class="contact-item">
-                                    <div class="contact-icon">
-                                        <ion-icon name="mail"></ion-icon>
-                                    </div>
-                                    <div>
-                                        <h3 class="contact-item-title">Email</h3>
-                                        <a href="mailto@ethan.com" class="contact-item-link">hello@ethan.com</a>
-                                    </div>
-                                </li>
-                                <li class="contact-item">
-                                    <div class="contact-icon">
-                                        <ion-icon name="call"></ion-icon>
-                                    </div>
-                                    <div>
-                                        <h3 class="contact-item-title">Phone</h3>
-                                        <a href="tel:+1234567800" class="contact-item-link">+1234567800</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-             </section>
+        <!-- TELEMETRY -->
+        <section class="mb-16">
+            <h2 class="text-xl text-gray-400 mb-4">/// LIVE_TELEMETRY</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                <img src="https://github-readme-stats.vercel.app/api?username=middlechild0&show_icons=true&theme=radical&hide_border=true&bg_color=000000&text_color=FFFFFF&icon_color=E50914&title_color=E50914" alt="GitHub Stats" class="w-full border border-architect-border rounded-none">
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=middlechild0&layout=compact&theme=radical&hide_border=true&bg_color=000000&text_color=FFFFFF&title_color=E50914" alt="Top Languages" class="w-full border border-architect-border rounded-none">
+            </div>
+        </section>
 
-             <!--
-                #BLOG
-              -->
-
-              <section class="section blog" id="blog">
-                <div class="container">
-                    <p class="section-subtitle">Latest News</p>
-                    <h2 class="h2 section-title">Checkout My Recent Blogs</h2>
-                    <p class="section-text">Dliquip ex ea commo do conse namber onequa ute irure dolor in reprehenderit in voluptate </p>
-                    <ul class="blog-list">
-                        <li>
-                            <div class="blog-card">
-              
-                              <figure class="card-banner">
-                                <a href="#">
-                                  <img src="./images/blog-1.jpg" width="1181" height="843" loading="lazy"
-                                    alt="Jim Morisson Says when the musics over turn off the light" class="img-cover">
-                                </a>
-                              </figure>
-              
-                              <a href="#" class="card-tag">Web Development</a>
-              
-                              <h3 class="card-title">
-                                <a href="#">Jim Morisson Says when the musics over turn off the light</a>
-                              </h3>
-              
-                            </div>
-                          </li>
-                          <li>
-                            <div class="blog-card">
-              
-                              <figure class="card-banner">
-                                <a href="#">
-                                  <img src="./images/blog-2.jpg" width="1181" height="843" loading="lazy"
-                                    alt="Jim Morisson Says when the musics over turn off the light" class="img-cover">
-                                </a>
-                              </figure>
-              
-                              <a href="#" class="card-tag">Web Development</a>
-              
-                              <h3 class="card-title">
-                                <a href="#">Jim Morisson Says when the musics over turn off the light</a>
-                              </h3>
-              
-                            </div>
-                          </li>
-                          <li>
-                            <div class="blog-card">
-              
-                              <figure class="card-banner">
-                                <a href="#">
-                                  <img src="./images/blog-3.jpg" width="1181" height="843" loading="lazy"
-                                    alt="Jim Morisson Says when the musics over turn off the light" class="img-cover">
-                                </a>
-                              </figure>
-              
-                              <a href="#" class="card-tag">Web Development</a>
-              
-                              <h3 class="card-title">
-                                <a href="#">Jim Morisson Says when the musics over turn off the light</a>
-                              </h3>
-              
-                            </div>
-                          </li>
-                    </ul>
-                </div>
-              </section>
-        </article>
-     </main>
-     <!---
-        #FOOTER
-      ---->
-
-      <footer class="footer">
-        <div class="container">
-            <p class="copyright">
-                &copy; 2022 <a href="#" class="copyright-link">CodewithMaksud</a> All Rights Reserved.</p>
-            <ul class="footer-list">
-                <li>
-                    <a href="#" class="footer-link">Terms & Condition</a>
-                </li>
-                <li>
-                    <a href="#" class="footer-link">Privacy Policy</a>
-                </li>
-            </ul>
-        </div>
-      </footer>
-
-      <!--- 
-        #BACK TO TOP
-        ----->
-
-        <a href="#top" class="back-to-top" data-back-to-top>BACK TOP</a>
-     
-
-     <!-----
-        -CUSTOM JS LINK
-     --->
-     <script src="js/script.js"></script>
-
-     <!----
-        -ionicon link
-     --->
-    
-     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-     
+        <!-- FOOTER -->
+        <footer class="border-t border-architect-border pt-8 pb-4 text-center text-gray-500 text-sm flex flex-col items-center justify-center gap-2">
+            <p>> END OF FILE.</p>
+            <p>SYSTEM.HALT(0)</p>
+        </footer>
+    </div>
 </body>
 </html>
